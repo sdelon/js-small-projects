@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    background-color: #F3F2F3;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    padding: 20px;
+}
+
+.container {
+    text-align: center;
+}
+
+.wheel-container {
+    margin: 50px auto;
+    width: 250px;
+    position: relative;
+}
+
+.wheel {
+    position: absolute;
+    top: -65%;
+    left: 93px;
+    animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+h1, p {
+    margin: 20px;
+}
+
+h1 {
+    color: #60AF9E;
+}
+
+p {
+    color: #333;
+    font-size: 15px;
+}
+
+.currency,
+.swap-container  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+}
+
+.currency select {
+    padding: 10px 20px 10px 10px;
+    background-color: rgb(228, 228, 228);
+    border-radius: 5px;
+    border: 1px solid #dedede;
+}
+
+.currency input {
+    border: 0;
+    background: transparent;
+    font-size: 25px;
+    text-align: right;
+}
+
+.amount-two {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.rate {
+    color: #60AF9E;
+    font-size: 15px;
+}
+
+.swap-container p {
+    color: #60AF9E;
+}
+
+button {
+    background-color: #60AF9E;
+    width: 20%;
+    height: 10%;
+    border: none;
+    color: #fefefe;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 8px 0px;
+    outline: 0;
+}
+
+button:hover {
+    box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.18);
+}
