@@ -15,7 +15,7 @@ async function calculateRate() {
         for(let [curr, rate] of arrOfRates) {
             if(curr === selectCurrencyTwo.value) {
                 let exchangeRate = rate * amountCurrencyOne.value
-                displayRate.textContent = exchangeRate.toString()
+                displayRate.textContent = exchangeRate.toFixed(2).toString()
                 actualRate.textContent = `1 ${currencyOne} = ${rate} ${curr}`
             }
         }
