@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Form validator</title>
+</head>
+<body>
+    <div class="container">
+        <form id="form" class="form">
+            <h1 class="form__title">Register with us</h1>
+            <div class="form__entry" id="form__entry">
+                <label class="form__label" for="userName">Username</label>
+                <input class="form__input" type="text" id="username" placeholder="Enter username">
+                <small class="form__error">Error message</small>
+            </div>
+            <div class="form__entry" id="form__entry">
+                <label class="form__label" for="email">Email</label>
+                <input class="form__input" type="text" id="email" placeholder="Enter email">
+                <small class="form__error">Error message</small>
+            </div>
+            <div class="form__entry" id="form__entry">
+                <label class="form__label" for="password">Password</label>
+                <input class="form__input" type="password" id="password" placeholder="Enter password">
+                <small class="form__error">Error message</small>
+            </div>
+            <div class="form__entry" id="form__entry">
+                <label class="form__label" for="password">Confirm Password</label>
+                <input class="form__input" type="password" id="password2" placeholder="Enter password again">
+                <small class="form__error">Error message</small>
+            </div>
+                <input class="form__submit" type="submit" placeholder="Submit">        
+        </form>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
