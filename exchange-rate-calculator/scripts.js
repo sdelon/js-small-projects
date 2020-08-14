@@ -1,22 +1,21 @@
 const btn = document.querySelector('button')
-const selectCurrencyOne = document.querySelector('#currency-one')
-const selectCurrencyTwo = document.querySelector('#currency-two')
+const currencyOne = document.querySelector('#currency-one')
+const currencyTwo = document.querySelector('#currency-two')
 const amountCurrencyOne = document.querySelector('#amount-one')
 const displayRate = document.querySelector('#amount-two')
 const actualRate = document.querySelector('#rate')
 
 async function calculateRate() {
-    let currencyOne = selectCurrencyOne.value
     try {
-        const res = await fetch(`https://api.exchangerate-api.com/v4/latest/${currencyOne}`)
+        const res = await fetch(`https://api.exchangerate-api.com/v4/latest/${currencyOne.value}`)
         let { rates } = await res.json()
         let arrOfRates = Object.entries(rates)
 
         for(let [curr, rate] of arrOfRates) {
-            if(curr === selectCurrencyTwo.value) {
+            if(curr === currencyTwo.value) {
                 let exchangeRate = rate * amountCurrencyOne.value
                 displayRate.textContent = exchangeRate.toFixed(2).toString()
-                actualRate.textContent = `1 ${currencyOne} = ${rate} ${curr}`
+                actualRate.textContent = `1 ${currencyOne.value} = ${rate} ${curr}`
             }
         }
     } catch(err) {
@@ -25,13 +24,13 @@ async function calculateRate() {
 }
 
 const swapCurrency = () => {
-    const temp = selectCurrencyOne.value
-    selectCurrencyOne.value = selectCurrencyTwo.value
-    selectCurrencyTwo.value = temp
+    const temp = currencyOne.value
+    currencyOne.value = currencyTwo.value
+    currencyTwo.value = temp
     calculateRate()
 }
 
-selectCurrencyOne.addEventListener('change', calculateRate)
-selectCurrencyTwo.addEventListener('change', calculateRate)
-amountCurrencyOne.addEventListener('change', calculateRate)
+currencyOne.addEventListener('change', calculateRate)
+currencyTwo.addEventListener('change', calculateRate)
+amountCurrencyOne.addEventListener('input', calculateRate)
 btn.addEventListener('click', swapCurrency)
