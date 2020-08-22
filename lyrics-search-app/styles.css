@@ -1,0 +1,111 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    width: 100%;
+    height: 300px;
+    background-image: url('jefferson-santos-fCEJGBzAkrU-unsplash.jpg');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+header form {
+    position: relative;
+}
+
+header form input {
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: none;
+    width: 300px;
+}
+
+header form button {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background-color: #DB4FF9;
+    border: none;
+    border-radius: 50px;
+    padding: 8px 18px;
+    color: white;
+    cursor: pointer;
+}
+
+.list-container {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.song-container {
+    width: 30%;
+    margin: 0 auto;
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.song-container .band {
+    margin-bottom: 30px;
+}
+
+.list-container ul li {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.band {
+    font-weight: bold;
+}
+
+.band > .title {
+    font-weight: lighter;
+}
+
+.album {
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.more-container {    
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.primary-btn {
+    border: none;
+    border-radius: 50px;
+    background-color: #814DF6;
+    padding: 5px 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.secondary-btn {
+    border: none;
+    border-radius: 50px;
+    background-color: #c02828;
+    padding: 5px 10px;
+    color: white;
+    cursor: pointer; 
+}
+
+.hidden {
+    visibility: hidden;
+}
