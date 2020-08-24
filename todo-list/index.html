@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>ToDo List</title>
+</head>
+<body>
+    <main>
+        <div class="todo-container">
+            <h1>Todo List</h1>
+            <form class="todo-form">
+                <input type="text" name="todo-item" id="todo-item" placeholder="Add a todo item">
+                <label for="todo-category">Choose a category to add in : </label>
+                <select name="todo-categories" id="todo-category">
+                    <option value="Home">Home</option>
+                    <option value="Work">Work</option>
+                    <option value="Hobby">Hobby</option>
+                    <option value="Misc">Misc</option>
+                </select>
+                <button type="submit">Add</button>
+            </form>
+        </div>
+        <div class="breadcrumb" id="breadcrumb"></div>
+        <div class="todolist" id="todolist">
+            <div class="todo work" data-todocat="work">
+                <h2>work</h2>
+            </div>
+            <div class="todo home" data-todocat="home">
+                <h2>home</h2>
+            </div>
+            <div class="todo hobby" data-todocat="hobby">
+                <h2>hobby</h2>
+            </div>
+            <div class="todo misc" data-todocat="misc">
+                <h2>misc</h2>
+            </div>
+        </div>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>
