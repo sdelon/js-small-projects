@@ -83,36 +83,36 @@ button[type="submit"] {
     color: var(--almost-white);
 }
 
-.work {
-    border: 5px solid var(--saumon);
-}
-
 .work > h2 {
     background-color: var(--saumon);
 }
 
-.home {
-    border: 5px solid var(--yellow);
+.todoitem-btn.work:hover {
+    color: var(--saumon);
 }
 
 .home > h2 {
     background-color: var(--yellow);
 }
 
-.hobby {
-    border: 5px solid var(--red-rose);
+.todoitem-btn.home:hover {
+    color: var(--yellow);
 }
 
 .hobby > h2 {
     background-color: var(--red-rose);
 }
 
-.misc {
-    border: 5px solid var(--blue);
+.todoitem-btn.hobby:hover {
+    color: var(--red-rose);
 }
 
 .misc > h2 {
     background-color: var(--blue);
+}
+
+.todoitem-btn.misc:hover {
+    color: var(--blue);
 }
 
 .todoitem {
@@ -135,9 +135,9 @@ button[type="submit"] {
 
 .todoitem-btn {
     background: transparent;
+    border: none;
+    text-decoration: underline;
+    font-family: 'Open Sans', sans-serif;
+    color: var(--gray);
     padding: 2px 8px;
-}
-
-.todoitem-btn:hover {
-    font-weight: bold;
 }

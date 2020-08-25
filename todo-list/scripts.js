@@ -13,7 +13,7 @@ const lineThroughItem = randomID => {
     [...todoList.children].filter(item => {
         [...item.children].filter(item => {
             if(item.dataset.id === randomID.toString()) {
-                item.firstElementChild.classList.toggle('done')
+                item.children[1].classList.toggle('done')
             }  
         })
     })
@@ -47,7 +47,7 @@ const updateDOM = () => {
         if(todo?.dataset?.todocat === updatedTodoCat.toLowerCase()) {
             todo.innerHTML += `
             <div data-id="${randomID}" class="todoitem" onclick="lineThroughItem(${randomID})" id="todo">
-            <p><input class="todoitem-checkbox" type="checkbox">${updatedTodo}</p>
+            <input class="todoitem-checkbox" type="checkbox"><p contenteditable="true">${updatedTodo}</p></input>
             <button class="todoitem-btn ${updatedTodoCat.toLowerCase()}" onclick="deleteItem(${randomID})">Effacer</button>
             </div>
         `
