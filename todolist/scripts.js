@@ -1,51 +1,50 @@
 const formTodo = document.querySelector('form')
 const displayTodos = document.querySelector('#displayTodo')
 
-const createTodoEl = (value) => {
-    const divTodo = document.createElement('div')
-    divTodo.className = 'bg-white text-gray-600 text-2xl text-left shadow-lg w-full py-5 px-8 mb-0.5'
-    divTodo.setAttribute('data-todo', value)
-    divTodo.innerText = value
-    displayTodos.appendChild(divTodo)
+const setTodoDataStorage = todo => {
+    localStorage.setItem('todo', todo)
 }
 
-// const underlineOrDeleteTodo = (e, arr) => {
-//     const leftClick = e.which === 1
-//     const rightClick = e.which === 2
+const createTodoEl = () => {
+    todo = localStorage.getItem('todo')
 
-//     if(leftClick) {
-//         e.target.classList.add('line-through')
-//         e.target.classList.add('opacity-50')
-//     } else if(rightClick) {
-//         arr.filter(todo => todo.innerText !== e.target.dataset.todo) 
-//     }
-// }
+    const divTodo = document.createElement('div')
+    divTodo.className = 'bg-white text-gray-600 text-2xl text-left shadow-lg w-full py-5 px-8 mb-0.5'
+    divTodo.setAttribute('data-todo', todo)
+    divTodo.innerText = todo
+    displayTodos.appendChild(divTodo)
 
-const todosArr = []
+    displayTodos.addEventListener('click', lineThroughTodo)
+    displayTodos.addEventListener('dblclick', deleteTodo)
+}
+
+const lineThroughTodo = (e) => {
+    let todosArr = [...displayTodos.children]
+    todosArr.filter(todoEl => {
+        if(todoEl.dataset.todo === e.target.dataset.todo) {
+            todoEl.classList.toggle('opacity-50')
+            todoEl.classList.toggle('line-through')
+        }
+    })
+}
+
+const deleteTodo = (e) => {
+    let todosArr = [...displayTodos.children]
+    todosArr.filter(todoEl => {
+        if(todoEl.dataset.todo === e.target.dataset.todo) {
+            todoEl.remove()
+        }
+    })
+}
 
 const submitFormTodo = e => {
     e.preventDefault()
-    let value = formTodo[0].value
-
-    todosArr.push(value)
-    createTodoEl(value)
-
-    console.log(todosArr)
-    const todos = document.querySelectorAll('[data-todo]')
-    todos.forEach(todo => todo.addEventListener('click', (e) => {
-        const leftClick = e.which === 1
-        if(leftClick) {
-            e.target.classList.add('line-through')
-            e.target.classList.add('opacity-50')
-        }
-    }))
-
-    todos.forEach(todo => todo.addEventListener('dblclick', (e) => {
-        const leftClick = e.which === 1
-        if(leftClick) {
-            todos.filter(todo => e.target.innerText !== todo.dataset.todo)
-        }
-    }))
+    let todoValue = formTodo[0].value
+    setTodoDataStorage(todoValue)
+    createTodoEl()
+    formTodo.reset()
 }
+
+createTodoEl()
 
 formTodo.addEventListener('submit', submitFormTodo)
